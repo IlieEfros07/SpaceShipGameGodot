@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://browvctgq2kfl"]
+
+[ext_resource type="Script" uid="uid://cn55ywvdkqo6m" path="res://Scripts/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://bxp3a7vbesfn3" path="res://Asset/Space Pack/Bullets/projectiles.png" id="2_ycag2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6afsh"]
+size = Vector2(140, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odot3"]
+atlas = ExtResource("2_ycag2")
+region = Rect2(600, 0, 300, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8o6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odot3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_qttmj"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="bullet" type="Area2D"]
+scale = Vector2(0.025, 0.025)
+script = ExtResource("1_oduel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -6)
+shape = SubResource("RectangleShape2D_6afsh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_t8o6v")
+frame_progress = 0.877293
+script = SubResource("GDScript_qttmj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://di84ee3y45k4o"]
+
+[ext_resource type="Script" uid="uid://c6kvaxmv45tm" path="res://Scripts/game.gd" id="1_3dryh"]
+[ext_resource type="PackedScene" uid="uid://7j0rph0ajxjk" path="res://Scenes/player.tscn" id="1_v158k"]
+[ext_resource type="FontFile" uid="uid://btujrl673mbct" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_wrm1d"]
+[ext_resource type="FontFile" uid="uid://btujrl673mbct" path="res://Asset/fonts/PixelOperator8-Bold.ttf" id="4_3dryh"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qxrlw"]
+a = Vector2(-1, -489)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wrm1d"]
+a = Vector2(67, -185)
+b = Vector2(67, 314)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3dryh"]
+a = Vector2(-218, -234)
+b = Vector2(231, -234)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wowpa"]
+a = Vector2(228, 266)
+b = Vector2(-220, 266)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3dryh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_smoothed = true
+
+[node name="Player" parent="." instance=ExtResource("1_v158k")]
+position = Vector2(1, 208)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-225, 241)
+shape = SubResource("SegmentShape2D_qxrlw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(160, -66)
+shape = SubResource("SegmentShape2D_wrm1d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-8, -18)
+shape = SubResource("SegmentShape2D_3dryh")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2, -14)
+shape = SubResource("SegmentShape2D_wowpa")
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="Labels"]
+offset_left = -193.0
+offset_top = -212.0
+offset_right = -139.0
+offset_bottom = -189.0
+theme_override_fonts/font = ExtResource("3_wrm1d")
+theme_override_font_sizes/font_size = 8
+text = "Score : "
+
+[node name="WinLabel" type="Label" parent="Labels"]
+visible = false
+offset_left = -100.0
+offset_top = -37.0
+offset_right = 101.0
+offset_bottom = -13.0
+theme_override_fonts/font = ExtResource("3_wrm1d")
+theme_override_font_sizes/font_size = 24
+text = "You Win !!"
+
+[node name="EnemiesWave" type="Label" parent="Labels"]
+offset_left = 131.0
+offset_top = -211.0
+offset_right = 200.0
+offset_bottom = -188.0
+theme_override_fonts/font = ExtResource("4_3dryh")
+theme_override_font_sizes/font_size = 8
+text = "Enemies : "

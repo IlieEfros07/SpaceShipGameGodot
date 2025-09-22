@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://7j0rph0ajxjk"]
+
+[ext_resource type="Script" uid="uid://b2dch7nwbhgna" path="res://Scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bhxx5e14fmk2u" path="res://Asset/Space Pack/Ships/green.png" id="2_cvnsp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(145, 127.877)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(0.4, 0.391)
+shape = SubResource("RectangleShape2D_cvnsp")

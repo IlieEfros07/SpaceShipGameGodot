@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl1ulaadvv3ch"]
+
+[ext_resource type="Script" uid="uid://1qmi87i4x7bd" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://ddtwok3abwecu" path="res://Asset/Space Pack/Ships/gray3.png" id="2_1f0kj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_287tu"]
+size = Vector2(128.889, 133.333)
+
+[node name="enemy" type="Area2D"]
+script = ExtResource("1_1f0kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_1f0kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.08616e-07, 0)
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_287tu")
