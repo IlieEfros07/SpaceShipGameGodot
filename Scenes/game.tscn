@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c6kvaxmv45tm" path="res://Scripts/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://7j0rph0ajxjk" path="res://Scenes/player.tscn" id="1_v158k"]
-[ext_resource type="FontFile" uid="uid://btujrl673mbct" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_wrm1d"]
-[ext_resource type="FontFile" uid="uid://btujrl673mbct" path="res://Asset/fonts/PixelOperator8-Bold.ttf" id="4_3dryh"]
+[ext_resource type="FontFile" uid="uid://btujrl673mbct" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="4_3dryh"]
+[ext_resource type="Texture2D" uid="uid://ctjrl1wam5o41" path="res://Asset/Space Pack/Backrounds/background1.png" id="4_wowpa"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_qxrlw"]
 a = Vector2(-1, -489)
@@ -12,13 +12,13 @@ a = Vector2(-1, -489)
 a = Vector2(67, -185)
 b = Vector2(67, 314)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_3dryh"]
-a = Vector2(-218, -234)
-b = Vector2(231, -234)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wowpa"]
 a = Vector2(228, 266)
 b = Vector2(-220, 266)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3dryh"]
+a = Vector2(-227, 3)
+b = Vector2(222, 3)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3dryh")
@@ -40,13 +40,13 @@ shape = SubResource("SegmentShape2D_qxrlw")
 position = Vector2(160, -66)
 shape = SubResource("SegmentShape2D_wrm1d")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-8, -18)
-shape = SubResource("SegmentShape2D_3dryh")
-
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-2, -14)
 shape = SubResource("SegmentShape2D_wowpa")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 141)
+shape = SubResource("SegmentShape2D_3dryh")
 
 [node name="Labels" type="Node2D" parent="."]
 
@@ -55,7 +55,7 @@ offset_left = -193.0
 offset_top = -212.0
 offset_right = -139.0
 offset_bottom = -189.0
-theme_override_fonts/font = ExtResource("3_wrm1d")
+theme_override_fonts/font = ExtResource("4_3dryh")
 theme_override_font_sizes/font_size = 8
 text = "Score : "
 
@@ -65,7 +65,7 @@ offset_left = -100.0
 offset_top = -37.0
 offset_right = 101.0
 offset_bottom = -13.0
-theme_override_fonts/font = ExtResource("3_wrm1d")
+theme_override_fonts/font = ExtResource("4_3dryh")
 theme_override_font_sizes/font_size = 24
 text = "You Win !!"
 
@@ -77,3 +77,9 @@ offset_bottom = -188.0
 theme_override_fonts/font = ExtResource("4_3dryh")
 theme_override_font_sizes/font_size = 8
 text = "Enemies : "
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(22.5, -110.5)
+scale = Vector2(1.974, 1.978)
+texture = ExtResource("4_wowpa")
