@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bchbwf4dutsof"]
+
+[ext_resource type="Texture2D" uid="uid://bxp3a7vbesfn3" path="res://Asset/Space Pack/Bullets/projectiles.png" id="1_5u543"]
+[ext_resource type="Script" uid="uid://bwks2tw48ck57" path="res://Scenes/enemy_bullet.gd" id="1_xj31p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj31p"]
+size = Vector2(306, 902)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjf14"]
+atlas = ExtResource("1_5u543")
+region = Rect2(0, 0, 500, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fx7gj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjf14")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="enemyBullet" type="Area2D"]
+script = ExtResource("1_xj31p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = 3.14159
+scale = Vector2(0.025, 0.025)
+shape = SubResource("RectangleShape2D_xj31p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -3.14159
+scale = Vector2(0.025, 0.025)
+sprite_frames = SubResource("SpriteFrames_fx7gj")

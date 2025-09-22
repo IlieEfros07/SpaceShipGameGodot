@@ -62,7 +62,6 @@ func spawn_wave_enemies(wave):
 	spawnTimer.wait_time = wave.spawnRate
 	spawnTimer.one_shot = false
 	
-
 	spawnTimer.timeout.connect(_on_spawn_timer_timeout.bind(wave, enemyScene, spawnTimer))
 	spawnTimer.start()
 
